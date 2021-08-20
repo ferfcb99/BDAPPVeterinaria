@@ -1,0 +1,45 @@
+Medico: 
+-idMedico: primary key, int(1)
+-Nombre: varchar(30) 
+-Apellido: varchar(30) 
+-Titulo: varchar(50) 
+-Edad: int
+
+
+Alergia:
+-alergia: varchar(30)
+
+Raza: 
+-codRaza: char(3) -> GL
+-raza: varchar(30) -> Golden Retriever
+
+
+Mascotas
+-idMascota: int primary key
+-Nombre: varchar(30)
+-Edad: int
+-Temperamento: varchar(30)
+
+Cliente:
+-idCliente: int primary key
+-nombre: varchar(30)
+-apellido: varchar(30)
+-direccion: varchar(500)
+
+
+Medicamento:            
+-codMedicamento: char(3) primary key
+-Nombre: varchar(30) unique
+-tipoAplicacion: varchar(30) 
+-Precio: numeric(4,2)
+
+Camas
+-idCama: int primary key
+-Tamaño: varchar(30) -> ('Grande', 'Mediano', 'Pequeño')
+-Uso: varchar(30)
+
+Articulos(Juguetes, comida, extras): 
+-idArticulo: int primary key
+-nombre: varchar(30)
+-precio: numeric(4,2) -- 9999
+
