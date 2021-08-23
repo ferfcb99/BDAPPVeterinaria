@@ -1,0 +1,63 @@
+-- crear una base de datos
+CREATE DATABASE Veterinaria;
+
+-- poniendo en uso la base 
+USE Veterinaria;
+
+CREATE TABLE Articulo(
+	idArticulo int auto_increment primary key,
+	nombre varchar(30) not null, 
+	precio numeric(5,2) -- 999.99
+);
+
+CREATE TABLE Cliente(
+	idCliente int auto_increment primary key,
+	nombre varchar(30) not null,
+	apellido varchar(30) not null,
+	direccion varchar(500)
+);
+
+-- tabla relacion 
+CREATE TABLE ClienteArticulo(
+	idCliente int not null,
+	idArticulo int not null,
+	cantidad int(1), -- 9
+	foreign key(idCliente) references Cliente(idCliente) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY(idArticulo) references Articulo(idArticulo) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+CREATE TABLE Medico(
+	idMedico int(1) auto_increment primary key, -- 9
+	nombre varchar(30) not null, 
+	apellido varchar(30) not null,
+	titulo varchar(50) DEFAULT 'Veterinario',
+	edad int null
+);
+
+
+CREATE TABLE Raza(
+	codRaza char(3) not null primary key,
+	raza varchar(30) not null UNIQUE
+);
+
+CREATE TABLE Mascota(
+	idMascota int auto_increment primary key,
+	nombre varchar(30) not null,
+	edad int(2) not null,
+	temperamento varchar(30) not null,
+	idCliente int not null,
+	codRaza char(3) not null,
+	FOREIGN KEY(idCliente) REFERENCES Cliente(idCliente) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY(codRaza) REFERENCES Raza(codRaza) ON DELETE CASCADE ON UPDATE CASCADE 
+);
+
+CREATE TABLE Alergia(
+	alergia varchar(30) not null,
+	primary key(alergia)
+);
+
+
+
+
+
