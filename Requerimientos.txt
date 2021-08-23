@@ -10,7 +10,7 @@ Alergia:
 -alergia: varchar(30): primary key
 
 Raza: 
--codRaza: char(3) -> GL
+-codRaza: char(3) -> GL:  primary key
 -raza: varchar(30) -> Golden Retriever
 
 
