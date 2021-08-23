@@ -7,7 +7,7 @@ Medico:
 
 
 Alergia:
--alergia: varchar(30)
+-alergia: varchar(30): primary key
 
 Raza: 
 -codRaza: char(3) -> GL
