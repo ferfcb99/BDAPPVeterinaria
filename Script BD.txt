@@ -56,8 +56,46 @@ CREATE TABLE Alergia(
 	alergia varchar(30) not null,
 	primary key(alergia)
 );
+l
+CREATE TABLE MascotaAlergia(
+	idMascota int not null,
+	alergia varchar(30) not null,
+	descripcion varchar(500),
+	foreign key(idMascota) references idMascota(idMascota) ON DELETE CASCADE ON UPDATE CASCADE,
+	foreign key(alergia) references Alergia(alergia) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
 
+CREATE TABLE MascotaMedico(
+	idMascota int not null,
+	idMedico int(1) not null, 
+	fechaHora datetime,
+	foreign key(idMascota) references Mascota(idMascota) ON DELETE CASCADE ON UPDATE CASCADE,	
+	foreign key(idMedico) references Medico(idMedico) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE Medicamento(
+	codMedicamento char(3) not null primary key,
+	nombre varchar(30) not null,
+	tipoAplicacion varchar(30) not null,
+	precio numeric(6,2) not null
+);
 
 
+CREATE TABLE MascotaMedicamento(
+	idMascota int not null, 
+	codMedicamento char(3) not null, 
+	foreign key(idMascota) references Mascota(idMascota) ON DELETE CASCADE ON UPDATE CASCADE,
+	foreign key(codMedicamento) references Medicamento(codMedicamento) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+CREATE TABLE Cama(
+	idCama int not null auto_increment, 
+	tamaño varchar(7) not null,
+	uso varchar(30),
+	idMascota int not null, 
+	PRIMARY KEY(idCama),
+	foreign key(idMascota) references Mascota(idMascota) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
