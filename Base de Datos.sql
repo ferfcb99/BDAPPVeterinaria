@@ -46,10 +46,22 @@ insert into Medico(nombre, apellido, edad) values('Sandra','Gomez','',35); -- NU
 insert into Medico(nombre, apellido, edad) values('Sandra','Gomez',35); 
 select * from Medico;
 
-CREATE TABLE Raza(
+CREATE TABLE Raza( -- CRUD
 	codRaza char(3) not null primary key,
 	raza varchar(30) not null UNIQUE
 );
+-- Datos dummy
+INSERT INTO Raza(codRaza, raza) VALUES('GL','Golden Retriever'),('BM','Bichon Maltes'),('MZ','Meztizo'),('PA','PastorAleman'),('LB','Labrador'),('LR','Labrador Retiever'),('HS','Husky Siberiano'),('PL','Poodle');
+DELETE FROM Raza WHERE codRaza = ?;
+
+
+select * from Raza;
+
+UPDATE Raza SET raza = 'Border collie' where codRaza = 'BC';
+
+
+-- Seleccionar las razas que en su nombre tengan la letra a
+select * from raza where raza LIKE '%a%' OR raza LIKE '%oo%';
 
 CREATE TABLE Mascota(
 	idMascota int auto_increment primary key,
@@ -96,6 +108,12 @@ CREATE TABLE Medicamento(
 );
 -- MO
 SELECT codMedicamento, nombre, tipoAplicacion, precio FROM Medicamento;
+SELECT nombre, tipoAplicacion, precio FROM Medicamento WHERE codMedicamento = ?;
+
+UPDATE Medicamento set nombre = 'NuevoMedicamento', tipoAplicacion = 'pastilla', precio = 15.99 where codMedicamento = 'C1';
+
+select nombre, tipoAplicacion, precio from Medicamento WHERE codMedicamento = "C2";
+
 insert into Medicamento(codMedicamento, nombre, tipoAplicacion, precio) values('C1','Medicamento1','Inyeccion',525.25);
 insert into Medicamento(codMedicamento, nombre, tipoAplicacion, precio) values('C2','Medicamento2','Inyeccion',525.48);
 
