@@ -57,7 +57,7 @@ DELETE FROM Raza WHERE codRaza = ?;
 
 select * from Raza;
 
-UPDATE Raza SET raza = 'Border collie' where codRaza = 'BC';
+UPDATE Raza SET raza = 'Border collie' where codRaza = 'GF';
 
 
 -- Seleccionar las razas que en su nombre tengan la letra a
@@ -133,6 +133,21 @@ CREATE TABLE Cama(
 	PRIMARY KEY(idCama),
 	foreign key(idMascota) references Mascota(idMascota) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
+select * from medico;
+UPDATE Medico SET nombre = ?, apellido = ?, titulo = ?, edad = ? WHERE idMedico = ?;
+UPDATE Medico SET nombre = 'Lizbeth', apellido = 'Gomez', titulo = 'Cirujana', edad = 48 WHERE idMedico = 3;
+
+
+
+
+
+
+
+
+
+
 
 
 
